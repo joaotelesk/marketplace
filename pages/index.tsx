@@ -1,10 +1,16 @@
+import { Footer } from "@/src/components/Footer/Footer";
 import { Products } from "@/src/components/Products/Products";
+import { Container, Main } from "@/styles/home";
 
 export default function Home() {
   return (
     <>
-      <h1>teste</h1>
-      <Products />
+      <Container>
+        <Main>
+          <Products />
+        </Main>
+        <Footer />
+      </Container>
     </>
   );
 }
