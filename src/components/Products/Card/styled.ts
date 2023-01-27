@@ -23,7 +23,7 @@ export const CardElement = styled.div`
     font-weight: 400;
     font-size: 16px;
     padding: 0 10px;
-    align-self: center;
+    align-self: baseline;
     &:nth-child(3) {
       min-width: 80px;
       height: 26px;
@@ -34,7 +34,7 @@ export const CardElement = styled.div`
       font-size: 15px;
       text-align: center;
       justify-self: end;
-      align-self: center;
+      align-self: baseline;
       padding: 3px 2px;
       margin-right: 12px;
     }
@@ -54,6 +54,7 @@ export const CardElement = styled.div`
       color: var(--white);
       font-weight: 600;
       padding: 0;
+      text-transform: uppercase;
     }
   }
 `;

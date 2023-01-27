@@ -6,7 +6,7 @@ export const ProductsContainer = styled.section`
   margin: 0 auto;
   padding: 0 10px;
   display: grid;
-  gap: 31px 15px;
+  gap: 30px 15px;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-template-rows: repeat(auto-fill, minmax(285px, 1fr));
 
@@ -17,5 +17,6 @@ export const ProductsContainer = styled.section`
   @media (max-width: 960px) {
     max-height: none;
     justify-items: center;
+    gap: 18px 15px;
   }
 `;

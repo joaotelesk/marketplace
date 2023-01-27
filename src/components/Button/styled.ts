@@ -9,12 +9,26 @@ export const ButtonElement = styled.button`
 
   div {
     display: flex;
+    align-items: center;
     justify-content: center;
     gap: 10px;
 
     p {
       font-size: 18px;
       font-weight: 700;
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 52px;
+    height: 26px;
+    div {
+      img {
+        height: 12px;
+      }
+      p {
+        font-size: 12px;
+      }
     }
   }
 `;
