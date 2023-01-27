@@ -1,21 +1,31 @@
-import { ADD_TO_CART, DECREMENT, INCREMENT, REMOVE_TO_CART } from "../contants";
+import {
+  ADD_TO_CART,
+  DECREMENT,
+  INCREMENT,
+  REMOVE_TO_CART,
+  TOGGLE_CART,
+} from "../contants";
 
-export const addToCart = (product: object) => ({
+import { CartItem } from "../reducer/cartSlice";
+export const addToCart = (product: CartItem) => ({
   type: ADD_TO_CART,
-  data: product,
+  payload: product,
 });
 
-export const removeFromCart = (product: object) => ({
+export const removeFromCart = (productId: string) => ({
   type: REMOVE_TO_CART,
-  data: product,
+  payload: productId,
 });
 
-export const incrementItem = (product: object) => ({
+export const incrementItem = (productId: string) => ({
   type: INCREMENT,
-  data: product,
+  payload: productId,
 });
 
-export const decrementItem = (product: object) => ({
+export const decrementItem = (productId: string) => ({
   type: DECREMENT,
-  data: product,
+  payload: productId,
+});
+export const toggleCart = () => ({
+  type: TOGGLE_CART,
 });
