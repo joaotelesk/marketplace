@@ -2,12 +2,16 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
-  max-height: 100%;
-  max-width: 100%;
+  height: 100vh;
+  width: 100vw;
   box-sizing: border-box;
 `;
 export const Main = styled.main`
-  width: 100%;
-  margin: 217px 0 206px 0;
+  padding: 110px 0;
+
+  @media (max-width: 768px) {
+    padding: 20px 0;
+  }
 `;
