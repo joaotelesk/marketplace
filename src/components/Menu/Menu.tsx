@@ -1,31 +1,50 @@
 /* Styles */
-import { MenuElement, MenuFooterElement } from "./styled";
+import {
+  MenuElement,
+  MenuElementHeader,
+  HeaderTitle,
+  HeaderButton,
+  MenuElementMain,
+  MenuElementFooter,
+  FooterTitle,
+  FooterButton,
+} from "./styled";
 
 /* Components */
-import Button from "../Button/Button";
 import List from "./List/List";
 
 /*  utilities */
 import { selectIsVisible, toggleCart } from "@/src/redux/slices/cartSlice";
 import { HelpDispatch, HelpSelector } from "@/src/helpers/redux";
+import { selectProductsTotalPrice } from "@/src/redux/reducer/cartSelectors";
 
 export default function Menu() {
   const dispatch = HelpDispatch();
+  let total = HelpSelector(selectProductsTotalPrice);
   const isOpen = HelpSelector(selectIsVisible);
   return (
     <>
-      <MenuElement menuOpen={isOpen ? true : false}>
-        <article>
-          <h2>
-            Carrinho <p>de compras</p>
-          </h2>
-          <Button icon="./close.svg" onClick={() => dispatch(toggleCart())} />
-        </article>
-        <List />
-        <MenuFooterElement>
-          <p>Finalizar Compra</p>
-        </MenuFooterElement>
+      <MenuElement menuOpen={isOpen}>
+        <MenuElementHeader>
+          <HeaderTitle>
+            Carrinho <br />
+            de compras
+          </HeaderTitle>
+          <HeaderButton onClick={() => dispatch(toggleCart())}>x</HeaderButton>
+        </MenuElementHeader>
+        <MenuElementMain>
+          <List />
+        </MenuElementMain>
+
+        <MenuElementFooter>
+          <FooterTitle>
+            <p>Total: </p>
+            <p>R${total.toLocaleString("pt-BR")}</p>
+          </FooterTitle>
+          <FooterButton>Finalizar Compra</FooterButton>
+        </MenuElementFooter>
       </MenuElement>
+
     </>
   );
 }

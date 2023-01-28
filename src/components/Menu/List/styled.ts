@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-export const ListaItens = styled.ul<{ size: number }>`
+export const ListItens = styled.ul<{ size: number }>`
   min-height: ${(props) => (props.size > 5 ? `none` : `500px`)};
-  margin: 25px;
+  margin: 0 25px;
 `;
 
-export const ListaCard = styled.div`
+export const ListCard = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
@@ -13,17 +13,17 @@ export const ListaCard = styled.div`
   background: var(--white);
   box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  padding: 10px;
+  
   justify-content: center;
   position: relative;
-  margin-top: 20px;
+  margin-top: 10px;
   
  
 
   div {
     display:flex; 
     alignItems:center; 
-    padding:0 10px;
+    padding:0 auto;
   }
 
   @media (max-width:1250px) {
@@ -32,7 +32,7 @@ export const ListaCard = styled.div`
     height:200px;
 `;
 
-export const ListaCardRemove = styled.div`
+export const ListCardRemove = styled.div`
   cursor: pointer;
   background-color: #000000;
   color: var(--white);
@@ -55,7 +55,7 @@ export const ListaCardRemove = styled.div`
   }
 `;
 
-export const ListaCardImg = styled.div<{ url: string }>`
+export const ListCardImg = styled.div<{ url: string }>`
   width: 45px;
   height: 57px;
   display: flex;
@@ -73,7 +73,7 @@ export const ListaCardImg = styled.div<{ url: string }>`
   }
 `;
 
-export const ListaCardTitle = styled.p`
+export const ListCardTitle = styled.p`
   font-weight: 400;
   font-size: 13px;
   max-width: 110px;
@@ -86,7 +86,7 @@ export const ListaCardTitle = styled.p`
   }
 `;
 
-export const LstaCardContainer = styled.div`
+export const LstCardContainer = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -161,7 +161,7 @@ export const Result = styled.span`
   }
 `;
 
-export const ListaCardPrice = styled.span`
+export const ListCardPrice = styled.span`
   font-weight: 700;
   font-size: 14px;
   display: flex;
@@ -185,18 +185,5 @@ export const ListaCardPrice = styled.span`
     height: 35px;
     width: 84px;
     font-size: 15px;
-  }
-`;
-
-export const Total = styled.div`
-  display: flex;
-  justify-content: space-around;
-  gap: 0 120px;
-  margin-bottom: 45px;
-  p {
-    color: var(--white);
-    font-weight: 700;
-    font-size: 28px;
-    line-height: 15px;
   }
 `;

@@ -1,25 +1,20 @@
 /* Styles */
 import {
-  ListaItens,
-  Total,
-  ListaCard,
-  ListaCardRemove,
-  ListaCardImg,
-  ListaCardTitle,
-  LstaCardContainer,
+  ListItens,
+  ListCard,
+  ListCardRemove,
+  ListCardImg,
+  ListCardTitle,
+  LstCardContainer,
   ContainerItems,
   Action,
   Result,
-  ListaCardPrice,
+  ListCardPrice,
 } from "./styled";
-
-/* Components */
-import Button from "../../Button/Button";
 
 /*  utilities */
 import { convert } from "@/src/helpers/convert";
 import { HelpDispatch, HelpSelector } from "@/src/helpers/redux";
-import { selectProductsTotalPrice } from "@/src/redux/reducer/cartSelectors";
 import {
   decrement,
   increment,
@@ -30,23 +25,20 @@ import {
 export default function List() {
   const dispatch = HelpDispatch();
   const products = HelpSelector(selectItem);
-  let total = HelpSelector(selectProductsTotalPrice);
 
   return (
     <>
-      <ListaItens size={products.length}>
+      <ListItens size={products.length}>
         {products.map((product) => {
           return (
-            <ListaCard key={product.id}>
-              <ListaCardRemove
-                onClick={() => dispatch(removeFromCart(product))}
-              >
+            <ListCard key={product.id}>
+              <ListCardRemove onClick={() => dispatch(removeFromCart(product))}>
                 x
-              </ListaCardRemove>
-              <ListaCardImg url={product.photo} />
-              <ListaCardTitle>{product.name}</ListaCardTitle>
+              </ListCardRemove>
+              <ListCardImg url={product.photo} />
+              <ListCardTitle>{product.name}</ListCardTitle>
               <div>
-                <LstaCardContainer>
+                <LstCardContainer>
                   <p>Qtd: </p>
                   <ContainerItems>
                     <Action onClick={() => dispatch(decrement(product))}>
@@ -57,17 +49,15 @@ export default function List() {
                       +
                     </Action>
                   </ContainerItems>
-                </LstaCardContainer>
-                <ListaCardPrice>R$: {convert(product.price)}</ListaCardPrice>
+                </LstCardContainer>
+                <ListCardPrice>
+                  R$: {convert(product.price).toLocaleString("pt-BR")}
+                </ListCardPrice>
               </div>
-            </ListaCard>
+            </ListCard>
           );
         })}
-      </ListaItens>
-      <Total>
-        <p>Total: </p>
-        <p>R${total}</p>
-      </Total>
+      </ListItens>
     </>
   );
 }

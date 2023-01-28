@@ -1,65 +1,106 @@
 import styled from "styled-components";
 
 export const MenuElement = styled.aside<{ menuOpen?: boolean }>`
-  background: var(--blue);
-  box-shadow: -5px 0px 6px rgba(0, 0, 0, 0.13);
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-width: 486px;
-  flex-basis: auto;
-  height: 100vh;
-  right: 0;
-  overflow-y: auto;
-  align-content: center;
-  z-index: 2;
   transform: ${(props) =>
     props.menuOpen ? `translateX(0)` : `translateX(100%)`};
 
+  right: ${(props) => (props.menuOpen ? "0" : "-100%")};
+  position: fixed;
+  top: 0;
+  z-index: 200;
+  height: 100vh;
+  background: var(--blue);
+  z-index: 200;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 35%;
   transition: 0.5s;
 
-  article {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px;
-    gap: 0px 5px;
-    padding-top: 15px;
-
-    h2 {
-      width: 160px;
-      font-weight: 700;
-      font-size: 27px;
-      line-height: 33px;
-      color: var(--white);
-    }
-
-    button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #000000;
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      padding-left: 10px;
-    }
+  /* tablet */
+  @media (max-width: 800px) {
+    width: 50%;
   }
-  @media (max-width: 768px) {
-    min-width: 90%;
+
+  /* mobile */
+  @media (max-width: 570px) {
+    width: 85%;
   }
 `;
 
-export const MenuFooterElement = styled.div`
+export const MenuElementHeader = styled.div`
   display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1px;
+  padding: 20px;
+`;
+export const HeaderTitle = styled.p`
+  max-width: 160px;
+  font-weight: 700;
+  font-size: 27px;
+  color: var(--white);
+`;
+export const HeaderButton = styled.button`
+  border: none;
+  background-color: black;
+  color: var(--white);
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  font-weight: 400;
+  font-size: 20px;
+  position: absolute;
+
+  right: 20px;
+`;
+
+export const MenuElementMain = styled.div`
+  height: 55%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 100%;
+    height: 100%;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0);
+  }
+`;
+export const MenuElementFooter = styled.div`
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+`;
+export const FooterTitle = styled.div`
+  padding: 0 47px;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  background-color: #000000;
-  min-height: 97px;
-  p {
-    font-weight: 700;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 40px;
+
+  @media (max-width: 800px) {
+    padding: 0 32px;
     font-size: 28px;
-    line-height: 15px;
-    color: var(--white);
+    margin-bottom: 20px;
+  }
+`;
+export const FooterButton = styled.button`
+  border: none;
+  background-color: #000;
+  font-weight: 700;
+  font-size: 28px;
+  display: inline-block;
+  height: 100px;
+  color: var(--white);
+  width: 100%;
+
+  @media (max-width: 570px) {
+    font-size: 20px;
+    height: 65px;
   }
 `;

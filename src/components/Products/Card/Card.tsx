@@ -26,7 +26,7 @@ export default function Card({
       <CardElement>
         <img src={photo} alt={`Photo this ${name}`} />
         <p>{name}</p>
-        <p>R$ {convert(price)}</p>
+        <p>R$ {convert(price).toLocaleString("pt-br")}</p>
         <p>{description}</p>
         <Button
           icon="./bag.svg"
