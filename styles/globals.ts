@@ -4,6 +4,7 @@ export const GlobalStyle = createGlobalStyle`
  :root {
      --blue: #0F52BA;
      --white: #FFFFFF;
+     --whiteMedian:#f9f9f9;
      --black: #373737;
      --lightGray: #E5E5E5;
      --darkGray: #EEEEEE;
@@ -20,7 +21,7 @@ export const GlobalStyle = createGlobalStyle`
     height: 100vh;
   }
   body {
-    background-color: var(--lightGray);
+    background-color: var(--whiteMedian);
     overflow-x: hidden;
   }
 `;

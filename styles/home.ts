@@ -10,6 +10,7 @@ export const Container = styled.div`
 `;
 export const Main = styled.main`
   padding: 110px 0;
+  margin-top: 60px;
 
   @media (max-width: 768px) {
     padding: 20px 0;
