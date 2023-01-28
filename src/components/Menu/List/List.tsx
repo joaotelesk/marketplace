@@ -1,5 +1,17 @@
 /* Styles */
-import { Fechar, ListaItens, Total } from "./styled";
+import {
+  ListaItens,
+  Total,
+  ListaCard,
+  ListaCardRemove,
+  ListaCardImg,
+  ListaCardTitle,
+  LstaCardContainer,
+  ContainerItems,
+  Action,
+  Result,
+  ListaCardPrice,
+} from "./styled";
 
 /* Components */
 import Button from "../../Button/Button";
@@ -23,39 +35,34 @@ export default function List() {
   return (
     <>
       <ListaItens size={products.length}>
-        <ul>
-          {products.map((product: any) => {
-            return (
-              <li key={product.id}>
-                <img src={product.photo} alt={product.title} />
-                <p className="title">{product.name}</p>
-
-                <section>
-                  <div>
-                    <p>Qtd:</p>
-                    <div>
-                      <button onClick={() => dispatch(decrement(product))}>
-                        -
-                      </button>
-                      <p>{product.count}</p>
-                      <button onClick={() => dispatch(increment(product))}>
-                        +
-                      </button>
-                    </div>
-                  </div>
-                  <p className="price">R${convert(product.price)}</p>
-                </section>
-
-                <Fechar>
-                  <Button
-                    icon="./close.svg"
-                    onClick={() => dispatch(removeFromCart(product))}
-                  />
-                </Fechar>
-              </li>
-            );
-          })}
-        </ul>
+        {products.map((product) => {
+          return (
+            <ListaCard key={product.id}>
+              <ListaCardRemove
+                onClick={() => dispatch(removeFromCart(product))}
+              >
+                x
+              </ListaCardRemove>
+              <ListaCardImg url={product.photo} />
+              <ListaCardTitle>{product.name}</ListaCardTitle>
+              <div>
+                <LstaCardContainer>
+                  <p>Qtd: </p>
+                  <ContainerItems>
+                    <Action onClick={() => dispatch(decrement(product))}>
+                      -
+                    </Action>
+                    <Result>{product.count}</Result>
+                    <Action onClick={() => dispatch(increment(product))}>
+                      +
+                    </Action>
+                  </ContainerItems>
+                </LstaCardContainer>
+                <ListaCardPrice>R$: {convert(product.price)}</ListaCardPrice>
+              </div>
+            </ListaCard>
+          );
+        })}
       </ListaItens>
       <Total>
         <p>Total: </p>
