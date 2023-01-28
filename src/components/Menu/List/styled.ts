@@ -116,6 +116,8 @@ export const ListaItens = styled.ul<{ size: number }>`
         }
         div {
           div {
+           
+            }
           }
         }
       }

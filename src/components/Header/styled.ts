@@ -2,19 +2,17 @@ import styled from "styled-components";
 
 export const HeaderElement = styled.header`
   display: flex;
+  position: fixed;
   justify-content: space-between;
   align-items: center;
   width: 100vw;
-  height: 100px;
+  height: calc(101px - 28px);
   padding: 28px 65px;
   background: var(--blue);
-
   @media (max-width: 768px) {
     height: 50px;
     padding: 2px 20px;
-    button {
-    }
-  }
+    
 `;
 
 export const LogoElement = styled.div`

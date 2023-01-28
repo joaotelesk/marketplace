@@ -13,6 +13,9 @@ export const ButtonElement = styled.button`
     justify-content: center;
     gap: 10px;
 
+    img {
+      width: 19px;
+    }
     p {
       font-size: 18px;
       font-weight: 700;
