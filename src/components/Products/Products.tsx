@@ -2,28 +2,27 @@
 import { ProductsContainer } from "./styled";
 
 /* Components */
-import { useGetData } from "../../services/useGete";
 import Card from "./Card/Card";
 
-export function Products() {
-  const { data, loading } = useGetData();
-
+import { IProduct } from "@/src/types/IProduct";
+type ProductsProps = {
+  products: IProduct[];
+};
+export function Products({ products }: ProductsProps) {
   return (
     <>
       <ProductsContainer>
-        {!loading
-          ? data?.products.map((item) => (
-              <div key={item.id}>
-                <Card
-                  id={item.id}
-                  photo={item.photo}
-                  title={item.name}
-                  description={item.description}
-                  price={item.price}
-                />
-              </div>
-            ))
-          : "Carregando..."}
+        {products.map((item) => (
+          <div key={item.id}>
+            <Card
+              id={item.id}
+              photo={item.photo}
+              name={item.name}
+              description={item.description}
+              price={item.price}
+            />
+          </div>
+        ))}
       </ProductsContainer>
     </>
   );

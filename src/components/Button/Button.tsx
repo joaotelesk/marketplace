@@ -4,7 +4,7 @@ import { ButtonElement } from "./styled";
 /* Interfaces */
 interface ButtonProps {
   icon?: string;
-  text?: string;
+  text?: string | number;
   onClick?: () => void;
 }
 

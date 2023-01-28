@@ -3,40 +3,35 @@ import { CardElement } from "./styled";
 
 /* Components */
 import Button from "../../Button/Button";
-import { addToCart } from "../../../store/reducer/cartSlice";
 
-/* Hooks */
-import { useDispatch } from "react-redux";
+/*  utilities */
+import { HelpDispatch } from "@/src/helpers/redux";
+import { convert } from "@/src/helpers/convert";
+import { addToCart } from "../../../redux/slices/cartSlice";
 
 /* Interfaces */
-interface CardProps {
-  id: number;
-  title: string;
-  photo: string;
-  price: string;
-  description: string;
-}
+import { IProduct } from "@/src/types/IProduct";
 
 export default function Card({
   id,
   photo,
-  title,
+  name,
   description,
   price,
-}: CardProps) {
-  const dispatch = useDispatch();
-  const product = { id, title, photo, price, count: 1 };
+}: IProduct) {
+  const dispatch = HelpDispatch();
+  const product = { id, name, photo, price, count: 1 };
   return (
     <>
       <CardElement>
-        <img src={photo} alt={`Photo this ${title}`} />
-        <p>{title}</p>
-        <p>R$ {parseInt(price).toLocaleString("pt-BR")}</p>
+        <img src={photo} alt={`Photo this ${name}`} />
+        <p>{name}</p>
+        <p>R$ {convert(price)}</p>
         <p>{description}</p>
         <Button
           icon="./bag.svg"
           text="comprar"
-          onClick={() => dispatch(addToCart(product))}
+          onClick={() => dispatch(addToCart({ ...product, quantity: 1 }))}
         />
       </CardElement>
     </>

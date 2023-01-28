@@ -2,7 +2,7 @@ import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import { Provider } from "react-redux";
 import Card from "./Card";
-import store from "../../../store";
+import store from "../../../redux";
 
 describe("Card component", () => {
   it("should render correctly and call the addToCart action", () => {

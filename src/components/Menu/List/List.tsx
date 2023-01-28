@@ -1,29 +1,34 @@
+/* Styles */
+import { Fechar, ListaItens, Total } from "./styled";
+
+/* Components */
+import Button from "../../Button/Button";
+
+/*  utilities */
+import { convert } from "@/src/helpers/convert";
+import { HelpDispatch, HelpSelector } from "@/src/helpers/redux";
+import { selectProductsTotalPrice } from "@/src/redux/reducer/cartSelectors";
 import {
   decrement,
   increment,
   removeFromCart,
-} from "@/src/store/reducer/cartSlice";
-import { useDispatch, useSelector } from "react-redux";
-import Button from "../../Button/Button";
-import { Fechar, ListaItens, Total } from "./styled";
+  selectItem,
+} from "@/src/redux/slices/cartSlice";
 
 export default function List() {
-  const dispatch = useDispatch();
-  const products = useSelector((state: any) => state.cart.items);
-  let total = 0;
+  const dispatch = HelpDispatch();
+  const products = HelpSelector(selectItem);
+  let total = HelpSelector(selectProductsTotalPrice);
+
   return (
     <>
       <ListaItens size={products.length}>
         <ul>
           {products.map((product: any) => {
-            {
-              total += parseInt(product.price) * product.count;
-            }
-
             return (
               <li key={product.id}>
                 <img src={product.photo} alt={product.title} />
-                <p className="title">{product.title}</p>
+                <p className="title">{product.name}</p>
 
                 <section>
                   <div>
@@ -38,9 +43,7 @@ export default function List() {
                       </button>
                     </div>
                   </div>
-                  <p className="price">
-                    R${parseInt(product.price).toLocaleString("pt-BR")}
-                  </p>
+                  <p className="price">R${convert(product.price)}</p>
                 </section>
 
                 <Fechar>
@@ -56,7 +59,7 @@ export default function List() {
       </ListaItens>
       <Total>
         <p>Total: </p>
-        <p>R${total.toLocaleString("pt-BR")}</p>
+        <p>R${total}</p>
       </Total>
     </>
   );

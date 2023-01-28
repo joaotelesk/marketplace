@@ -2,16 +2,19 @@
 import { HeaderElement, LogoElement } from "./styled";
 
 /* Hooks */
-import { useDispatch, useSelector } from "react-redux";
+import { HelpDispatch, HelpSelector } from "../../helpers/redux";
 
 /* Components */
+import Menu from "../Menu/Menu";
 import Button from "../Button/Button";
 
-import { toggleCart } from "@/src/store/reducer/cartSlice";
-import Menu from "../Menu/Menu";
-export default function Header() {
-  const dispatch = useDispatch();
-  const items = useSelector((state: any) => state.cart.items);
+/*  utilities */
+import { selectItemQuantity } from "@/src/redux/reducer/cartSelectors";
+import { toggleCart } from "@/src/redux/slices/cartSlice";
+
+export function Header() {
+  const dispatch = HelpDispatch();
+  const items = HelpSelector(selectItemQuantity);
   return (
     <>
       <Menu />
@@ -23,7 +26,7 @@ export default function Header() {
 
         <Button
           icon="./cart.svg"
-          text={items.length}
+          text={items}
           onClick={() => dispatch(toggleCart())}
         />
       </HeaderElement>

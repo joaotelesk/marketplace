@@ -1,18 +1,17 @@
 /* Styles */
 import { MenuElement, MenuFooterElement } from "./styled";
 
-/* Hooks */
-import { useDispatch, useSelector } from "react-redux";
-
 /* Components */
-import { toggleCart } from "@/src/store/reducer/cartSlice";
-
 import Button from "../Button/Button";
 import List from "./List/List";
 
+/*  utilities */
+import { selectIsVisible, toggleCart } from "@/src/redux/slices/cartSlice";
+import { HelpDispatch, HelpSelector } from "@/src/helpers/redux";
+
 export default function Menu() {
-  const dispatch = useDispatch();
-  const isOpen = useSelector((state: any) => state.cart.isOpen);
+  const dispatch = HelpDispatch();
+  const isOpen = HelpSelector(selectIsVisible);
   return (
     <>
       <MenuElement menuOpen={isOpen ? true : false}>
