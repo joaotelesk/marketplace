@@ -1,150 +1,190 @@
 import styled from "styled-components";
 
 export const ListaItens = styled.ul<{ size: number }>`
-  min-height: ${(props) => (props.size > 5 ? `none` : `615px`)};
-  margin-top: 64px;
+  min-height: ${(props) => (props.size > 5 ? `none` : `500px`)};
+  margin: 25px;
+`;
 
-  li {
-    width: 80%;
-    min-height: 95px;
-    background: var(--white);
-    box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.05);
-    border-radius: 8px;
-    margin: 0 auto 22px;
-    padding: 10px 10px;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0 10px;
-    position: relative;
+export const ListaCard = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 95px;
+  background: var(--white);
+  box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 10px;
+  justify-content: center;
+  position: relative;
+  margin-top: 20px;
+  
+ 
 
-    img {
-      width: 50px;
-      height: 50px;
-    }
-    p {
-      width: auto;
-      font-weight: 400;
-      font-size: 13px;
-
-      &:nth-child(1) {
-        font-size: 8px;
-        font-weight: 400;
-      }
-    }
-
-    section {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-      background: var(--white);
-      width: 85px;
-      margin: 0 0 10px 20px;
-      div {
-        div {
-          border: 0.3px solid #bfbfbf;
-          margin-top: 4px;
-          border-radius: 4px;
-          max-width: 50px;
-          max-height: 20px;
-          display: flex;
-          align-items: center;
-
-          p {
-            text-align: center;
-            border-right: 0.2px solid #bfbfbf;
-            border-left: 0.2px solid #bfbfbf;
-            height: 12px;
-            line-height: 12px;
-          }
-
-          button {
-            padding: 2px 5px;
-            font-weight: 400;
-            border: none;
-            background: none;
-            text-align: center;
-          }
-        }
-      }
-      .price {
-        padding-top: 10px;
-        font-size: 30px;
-        font-size: 14px;
-        font-weight: 700;
-      }
-    }
+  div {
+    display:flex; 
+    alignItems:center; 
+    padding:0 10px;
   }
-  @media (max-width: 767px) {
-    li {
-      width: 80%;
-      flex-direction: column;
 
-      img {
-        width: auto;
-        height: 150px;
-      }
-      .title {
-        font-size: 18px;
-      }
-      p {
-        font-weight: 400;
-        font-size: 10px;
+  @media (max-width:1250px) {
 
-        &:nth-child(1) {
-          display: none;
-        }
-      }
-      section {
-        width: 80%;
-        align-items: baseline;
-        justify-content: space-around;
-        .price {
-          min-width: 80px;
-          height: 26px;
-          background: #373737;
-          color: var(--white);
-          border-radius: 5px;
-          font-weight: 700;
-          font-size: 15px;
-          text-align: center;
-          justify-self: end;
-          align-self: baseline;
-          padding: 3px 2px;
-          margin-right: 12px;
-        }
-        div {
-          div {
-           
-            }
-          }
-        }
-      }
+    flex-direction:column;
+    height:200px;
+`;
+
+export const ListaCardRemove = styled.div`
+  cursor: pointer;
+  background-color: #000000;
+  color: var(--white);
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  font-weight: 400;
+  position: absolute;
+  right: -2.55%;
+  bottom: 85%;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 1250px) {
+    right: -1%;
+    bottom: 92%;
+    font-size: 20px;
+  }
+`;
+
+export const ListaCardImg = styled.div<{ url: string }>`
+  width: 45px;
+  height: 57px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(${(props) => props.url});
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+
+  /* desktop */
+  @media (max-width: 1250px) {
+    height: 95px;
+    width: 80px;
+  }
+`;
+
+export const ListaCardTitle = styled.p`
+  font-weight: 400;
+  font-size: 13px;
+  max-width: 110px;
+  margin: 0 20px;
+
+  /* desktop */
+  @media (max-width: 1250px) {
+    margin-bottom: 10px;
+    max-width: 200px;
+  }
+`;
+
+export const LstaCardContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: auto;
+
+  p {
+    font-weight: 400;
+    font-size: 10px;
+    text-align: left;
+
+    /* desktop */
+    @media (max-width: 1250px) {
+      display: none;
     }
   }
 `;
 
-export const Fechar = styled.div`
-  button {
+export const ContainerItems = styled.div`
+  width: 65px;
+  height: 22px;
+  border-radius: 5px;
+  border: 1px solid #bfbfbf;
+  margin-top: 4px;
+  margin-right: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  /* desktop */
+  @media (max-width: 1250px) {
+    margin: 0 10px 0 0;
+    height: 26px;
+  }
+
+  /* mobile */
+  @media (max-width: 570px) {
+    width: 97px;
+    height: 34px;
+    border-radius: 4px;
+    margin-right: 29px;
+  }
+`;
+
+export const Action = styled.button`
+  border: none;
+  background: none;
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--black);
+
+  /* mobile */
+  @media (max-width: 570px) {
+    font-size: 24px;
+  }
+`;
+export const Result = styled.span`
+  font-weight: 400;
+  font-size: 10px;
+  border-left: 1px solid #bfbfbf;
+  border-right: 1px solid #bfbfbf;
+  padding: 0 8px;
+
+  /* desktop */
+  @media (max-width: 1250px) {
+    font-size: 14px;
+  }
+
+  /* mobile */
+  @media (max-width: 570px) {
+    font-size: 20px;
+    padding: 0 12px;
+  }
+`;
+
+export const ListaCardPrice = styled.span`
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+
+  /* desktop */
+  @media (max-width: 1250px) {
+    background-color: var(--black);
+    color: var(--white);
+    border-radius: 5px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    background: #000000;
-    max-width: 18px;
-    max-height: 18px;
-    border-radius: 50%;
-    padding-left: 11px;
-    position: absolute;
-    top: -5%;
-    right: -2%;
-    p {
-      width: 1px;
-    }
-    img {
-      width: 8px;
-      height: 17px;
-    }
+    align-items: center;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 4px 6px;
+  }
+
+  /* mobile */
+  @media (max-width: 570px) {
+    height: 35px;
+    width: 84px;
+    font-size: 15px;
   }
 `;
 
