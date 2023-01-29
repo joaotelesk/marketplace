@@ -14,7 +14,8 @@ export const ListCard = styled.div`
   box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   
-  justify-content: center;
+  justify-content: space-between;
+  padding:14px 20px;
   position: relative;
   margin-top: 10px;
   
@@ -22,6 +23,7 @@ export const ListCard = styled.div`
 
   div {
     display:flex; 
+    justify-content:space-around;
     alignItems:center; 
     padding:0 auto;
   }

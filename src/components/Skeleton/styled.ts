@@ -3,9 +3,9 @@ import styled from "styled-components";
 export const Container = styled.div`
   background-image: linear-gradient(
     -90deg,
-    var(--cinzaEscuro) 0%,
-    var(--preto) 50%,
-    var(--cinzaEscuro) 100%
+    var(--lightGray) 0%,
+    var(--black) 50%,
+    var(--darkGray) 100%
   );
   border-radius: 8px;
 
