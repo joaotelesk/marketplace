@@ -2,12 +2,12 @@ import { RootState } from "../index";
 
 export const selectProductsTotalPrice = (state: RootState) => {
   return state.item.reduce((acc, currentItem) => {
-    return acc + currentItem.price * currentItem.count;
+    return acc + currentItem.price * currentItem.quantity;
   }, 0);
 };
 
-export const selectItemQuantity = (state: RootState) => {
+export const selectItemCount = (state: RootState) => {
   return state.item.reduce((acc, currentItem) => {
-    return acc + currentItem.quantity;
+    return acc + currentItem.count;
   }, 0);
 };

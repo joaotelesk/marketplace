@@ -44,7 +44,7 @@ const cartSlice = createSlice({
     increment: (state, action) => {
       state.item.map((item) => {
         if (item.id === action.payload.id) {
-          item.count += 1;
+          item.quantity += 1;
           return item;
         }
         return item;
@@ -53,7 +53,7 @@ const cartSlice = createSlice({
     decrement: (state, action) => {
       state.item.map((item) => {
         if (item.id === action.payload.id) {
-          item.count = item.count > 1 ? item.count - 1 : 1;
+          item.quantity = item.quantity > 1 ? item.quantity - 1 : 1;
 
           return item;
         }
@@ -69,6 +69,6 @@ const cartSlice = createSlice({
 export const { addToCart, removeFromCart, increment, decrement, toggleCart } =
   cartSlice.actions;
 
-export const selectIsVisible = (state: RootState) => state.isOpen;
+export const selectIsOpen = (state: RootState) => state.isOpen;
 export const selectItem = (state: RootState) => state.item;
 export default cartSlice.reducer;
