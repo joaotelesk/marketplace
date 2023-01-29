@@ -20,7 +20,7 @@ export default function Card({
   price,
 }: IProduct) {
   const dispatch = HelpDispatch();
-  const product = { id, name, photo, price, count: 1 };
+  const product = { id, name, photo, price, count: 1, quantity: 1 };
   return (
     <>
       <CardElement>
@@ -31,7 +31,7 @@ export default function Card({
         <Button
           icon="./bag.svg"
           text="comprar"
-          onClick={() => dispatch(addToCart({ ...product, quantity: 1 }))}
+          onClick={() => dispatch(addToCart(product))}
         />
       </CardElement>
     </>

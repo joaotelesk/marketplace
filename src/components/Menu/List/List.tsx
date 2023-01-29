@@ -44,7 +44,7 @@ export default function List() {
                     <Action onClick={() => dispatch(decrement(product))}>
                       -
                     </Action>
-                    <Result>{product.count}</Result>
+                    <Result>{product.quantity}</Result>
                     <Action onClick={() => dispatch(increment(product))}>
                       +
                     </Action>

@@ -9,12 +9,12 @@ import Menu from "../Menu/Menu";
 import Button from "../Button/Button";
 
 /*  utilities */
-import { selectItemQuantity } from "@/src/redux/reducer/cartSelectors";
+import { selectItemCount } from "@/src/redux/reducer/cartSelectors";
 import { toggleCart } from "@/src/redux/slices/cartSlice";
 
 export function Header() {
   const dispatch = HelpDispatch();
-  const items = HelpSelector(selectItemQuantity);
+  const items = HelpSelector(selectItemCount);
   return (
     <>
       <Menu />

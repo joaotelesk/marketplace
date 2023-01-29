@@ -14,14 +14,14 @@ import {
 import List from "./List/List";
 
 /*  utilities */
-import { selectIsVisible, toggleCart } from "@/src/redux/slices/cartSlice";
+import { selectIsOpen, toggleCart } from "@/src/redux/slices/cartSlice";
 import { HelpDispatch, HelpSelector } from "@/src/helpers/redux";
 import { selectProductsTotalPrice } from "@/src/redux/reducer/cartSelectors";
 
 export default function Menu() {
   const dispatch = HelpDispatch();
   let total = HelpSelector(selectProductsTotalPrice);
-  const isOpen = HelpSelector(selectIsVisible);
+  const isOpen = HelpSelector(selectIsOpen);
   return (
     <>
       <MenuElement menuOpen={isOpen}>
@@ -44,7 +44,6 @@ export default function Menu() {
           <FooterButton>Finalizar Compra</FooterButton>
         </MenuElementFooter>
       </MenuElement>
-
     </>
   );
 }
