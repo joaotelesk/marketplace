@@ -27,7 +27,7 @@
 
 ## 🧠 Sobre
 
-O projeto foi desenvolvido em um desafio técnico no processo seletivo da MKS Desenvolvimento de Sistemas, onde a tarefa era desenvolver um projeto de marketplace consumindo a [API](https://mks-challenge-api-frontend.herokuapp.com/api-docs/#/Product/get_products) e [Designer](https://www.figma.com/file/Z4z8osDbK1ET7cjNzFRMrK/MKS-Front-end-challenge?node-id=5%3A207&t=6uebScWQZ1h1vuYk-0) de produtos disponibilizada pela empresa.
+O projeto foi desenvolvido em um desafio técnico no processo seletivo da MKS Desenvolvimento de Sistemas, onde a tarefa era desenvolver um projeto de marketplace consumindo a [API](https://mks-challenge-api-frontend.herokuapp.com/api-docs/#/Product/get_products) e [designer](https://www.figma.com/file/Z4z8osDbK1ET7cjNzFRMrK/MKS-Front-end-challenge?node-id=5%3A207&t=6uebScWQZ1h1vuYk-0) de produtos disponibilizada pela empresa.
 
 <br/>
 
@@ -40,8 +40,8 @@ O projeto foi desenvolvido em um desafio técnico no processo seletivo da MKS De
 
 [Mobile]()
 
-<img src="./public/mobile-1.png" alt="pagina home" />
-<img src="./public/mobile-2.png" alt="pagina home" />
+<div width="100vh"><img src="./public/mobile-1.png" alt="pagina home" width="auto" />
+<img src="./public/mobile-2.png" alt="pagina home" width="auto"/><div/>
 
 <br/>
 
@@ -75,9 +75,9 @@ Antes de iniciar 🏁, você precisa ter [Git](https://git-scm.com) e [Node](htt
 
 ```bash
 # Clone este projeto
-$ git clone https://github.com/joaotelesk/formulario-ux.git
+$ git clone https://github.com/joaotelesk/marketplace
 # Acesse
-$ cd formulario-ux
+$ cd marketplace
 # Instale as dependências
 $ yarn
 # Execute o projeto
